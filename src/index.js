@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "./index.css";
 
 const pizzas = [
   {
@@ -41,7 +42,7 @@ const pizzas = [
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <Header />
       <Menu />
       <Footer />
@@ -50,19 +51,26 @@ function App() {
 }
 
 const Header = () => {
-  return <h1>Fast React Pizza Co.</h1>;
+  // const style = { color: "red", textTransform: "uppercase" };
+  const style = {};
+
+  return (
+    <header className="header">
+      <h1 style={style}>Fast React Pizza Co.</h1>
+    </header>
+  );
 };
 
 const Menu = () => {
   return (
-    <div>
+    <main className="menu">
       <h2>Our Menu</h2>
       <Pizza />
       <Pizza />
       <Pizza />
       <Pizza />
       <Pizza />
-    </div>
+    </main>
   );
 };
 
@@ -75,7 +83,9 @@ const Footer = () => {
   console.log(isOpen);
 
   return (
-    <footer>{new Date().toLocaleTimeString()}, We're currently open</footer>
+    <footer class="footer">
+      {new Date().toLocaleTimeString()}, We're currently open
+    </footer>
   );
 };
 
@@ -83,7 +93,7 @@ function Pizza() {
   return (
     <div>
       <img src="pizzas/margherita.jpg" alt="Margherita Pizza" />
-      <h2>Margherita Pizza</h2>
+      <h3>Margherita Pizza</h3>
       <p>Tomato, Mozzarella, Basil</p>
     </div>
   );
